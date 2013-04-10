@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.Kinect;
+using System.Windows;
+using System.Runtime.InteropServices;
 
 namespace Kinect.Toolbox
 {
@@ -9,6 +11,12 @@ namespace Kinect.Toolbox
         public float SwipeMaximalHeight {get;set;}
         public int SwipeMininalDuration {get;set;}
         public int SwipeMaximalDuration {get;set;}
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
+        internal static extern void MoveWindow(IntPtr hwnd, int x, int y, int nWidth, int nHeight, bool bRepaint);
 
         public SwipeGestureDetector(int windowSize = 20)
             : base(windowSize)
@@ -46,6 +54,10 @@ namespace Kinect.Toolbox
 
         protected override void LookForGesture()
         {
+
+            IntPtr winId;
+            winId = GetForegroundWindow();
+
             // Swipe to right
             if (ScanPositions((p1, p2) => Math.Abs(p2.Y - p1.Y) < SwipeMaximalHeight, // Height
                 (p1, p2) => p2.X - p1.X > -0.01f, // Progression to right
@@ -53,6 +65,9 @@ namespace Kinect.Toolbox
                 SwipeMininalDuration, SwipeMaximalDuration)) // Duration
             {
                 RaiseGestureDetected("SwipeToRight");
+
+                MoveWindow(winId, 720, 0, 720, 800, true);
+
                 return;
             }
 
@@ -63,6 +78,9 @@ namespace Kinect.Toolbox
                 SwipeMininalDuration, SwipeMaximalDuration))// Duration
             {
                 RaiseGestureDetected("SwipeToLeft");
+
+                MoveWindow(winId, 0, 0, 720, 800, true);
+
                 return;
             }
         }
