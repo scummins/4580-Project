@@ -141,3 +141,5 @@ C:\Users\scott\Documents\Kinect\Lesson 2\Lesson 2 - Gestures\SkeletalTracking\Sk
 C:\Users\scott\Documents\Kinect\Lesson 2\Lesson 2 - Gestures\SkeletalTracking\SkeletalTracking\bin\Debug\Microsoft.Expression.Drawing.dll
 C:\Users\scott\Documents\Kinect\Lesson 2\Lesson 2 - Gestures\SkeletalTracking\SkeletalTracking\bin\Debug\Microsoft.Samples.Kinect.WpfViewers.pdb
 C:\Users\scott\Documents\Kinect\Lesson 2\Lesson 2 - Gestures\SkeletalTracking\SkeletalTracking\bin\Debug\Coding4Fun.Kinect.Wpf.pdb
+C:\Users\scott\Documents\GitHub\4580-Project\Lesson 2\Lesson 2 - Gestures\SkeletalTracking\SkeletalTracking\obj\x86\Debug\SkeletalTracking.exe
+C:\Users\scott\Documents\GitHub\4580-Project\Lesson 2\Lesson 2 - Gestures\SkeletalTracking\SkeletalTracking\obj\x86\Debug\SkeletalTracking.pdb

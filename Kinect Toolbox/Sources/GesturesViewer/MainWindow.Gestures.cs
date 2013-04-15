@@ -13,13 +13,27 @@ namespace GesturesViewer
         {
             using (Stream recordStream = File.Open(circleKBPath, FileMode.OpenOrCreate))
             {
-                circleGestureRecognizer = new TemplatedGestureDetector("Circle", recordStream);
+                circleGestureRecognizer = new TemplatedGestureDetector("Look at me!", recordStream);
                 circleGestureRecognizer.DisplayCanvas = gesturesCanvas;
                 circleGestureRecognizer.OnGestureDetected += OnGestureDetected;
 
                 MouseController.Current.ClickGestureDetector = circleGestureRecognizer;
             }
         }
+
+
+        void LoadWGestureDetector()
+        {
+            using (Stream recordStream = File.Open(circleKBPath, FileMode.OpenOrCreate))
+            {
+                wGestureRecognizer = new TemplatedGestureDetector("Dubya", recordStream);
+                wGestureRecognizer.DisplayCanvas = gesturesCanvas;
+                wGestureRecognizer.OnGestureDetected += OnGestureDetected;
+
+                MouseController.Current.ClickGestureDetector = wGestureRecognizer;
+            }
+        }
+
 
         private void recordGesture_Click(object sender, RoutedEventArgs e)
         {
@@ -38,6 +52,7 @@ namespace GesturesViewer
         {
             int pos = detectedGestures.Items.Add(string.Format("{0} : {1}", gesture, DateTime.Now));
 
+            if(String.Equals(gesture, "Look at Me!", StringComparison.OrdinalIgnoreCase)) System.Diagnostics.Process.Start("C:/Program Files (x86)/Notepad++/notepad++.exe");
             detectedGestures.SelectedIndex = pos;
         }
 

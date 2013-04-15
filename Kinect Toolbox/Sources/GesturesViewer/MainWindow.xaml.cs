@@ -20,6 +20,7 @@ namespace GesturesViewer
 
         SwipeGestureDetector swipeGestureRecognizer;
         TemplatedGestureDetector circleGestureRecognizer;
+        TemplatedGestureDetector wGestureRecognizer;
         readonly ColorStreamManager colorManager = new ColorStreamManager();
         readonly DepthStreamManager depthManager = new DepthStreamManager();
         AudioStreamManager audioManager;
@@ -33,6 +34,7 @@ namespace GesturesViewer
         bool displayDepth;
 
         string circleKBPath;
+        string wKBPath;
         string letterT_KBPath;
 
         KinectRecorder recorder;
@@ -146,6 +148,7 @@ namespace GesturesViewer
             kinectSensor.Start();
 
             LoadCircleGestureDetector();
+            LoadWGestureDetector();
             LoadLetterTPostureDetector();
 
             nuiCamera = new BindableNUICamera(kinectSensor);
