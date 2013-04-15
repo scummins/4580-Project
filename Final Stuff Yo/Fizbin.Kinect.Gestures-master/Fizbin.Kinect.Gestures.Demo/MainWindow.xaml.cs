@@ -200,6 +200,11 @@ namespace Fizbin.Kinect.Gestures.Demo
             leanleftSegments[0] = new LeanLeftSegment1();
             leanleftSegments[1] = new LeanLeftSegment2();
             gestureController.AddGesture("LeanLeft", leanleftSegments);
+
+            IRelativeGestureSegment[] leanrightSegments = new IRelativeGestureSegment[2];
+            leanrightSegments[0] = new LeanRightSegment1();
+            leanrightSegments[1] = new LeanRightSegment2();
+            gestureController.AddGesture("LeanRight", leanrightSegments);
         }
 
         #region Properties
@@ -291,6 +296,9 @@ namespace Fizbin.Kinect.Gestures.Demo
                     break;
                 case "LeanLeft":
                     Gesture = "Lean Left";
+                    break;
+                case "LeanRight":
+                    Gesture = "Lean Right";
                     break;
 
                 default:
