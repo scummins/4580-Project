@@ -1,14 +1,11 @@
 ﻿using Microsoft.Kinect;
-using System.Runtime.InteropServices;
-using System;
-using System.Windows;
 
 namespace Fizbin.Kinect.Gestures.Segments
 {
     /// <summary>
-    /// The first part of the swipe left gesture
+    /// The first part of the leftpushforward gesture
     /// </summary>
-    public class SwipeLeftSegment1 : IRelativeGestureSegment
+    public class RightPushForwardSegment1 : IRelativeGestureSegment
     {
         /// <summary>
         /// Checks the gesture.
@@ -24,8 +21,8 @@ namespace Fizbin.Kinect.Gestures.Segments
                 // right hand below shoulder height but above hip height
                 if (skeleton.Joints[JointType.HandRight].Position.Y < skeleton.Joints[JointType.Head].Position.Y && skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y)
                 {
-                    // right hand right of right shoulder
-                    if (skeleton.Joints[JointType.HandRight].Position.X > skeleton.Joints[JointType.ShoulderRight].Position.X)
+                    // right hand left of right shoulder
+                    if (skeleton.Joints[JointType.HandRight].Position.X < skeleton.Joints[JointType.ShoulderRight].Position.X)
                     {
                         return GesturePartResult.Succeed;
                     }
@@ -73,15 +70,6 @@ namespace Fizbin.Kinect.Gestures.Segments
     /// </summary>
     public class SwipeLeftSegment3 : IRelativeGestureSegment
     {
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
-        static extern IntPtr GetForegroundWindow();
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
-        internal static extern void MoveWindow(IntPtr hwnd, int x, int y, int nWidth, int nHeight, bool bRepaint);
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
-        private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
-
         /// <summary>
         /// Checks the gesture.
         /// </summary>
@@ -98,9 +86,6 @@ namespace Fizbin.Kinect.Gestures.Segments
                     // //right hand left of center hip
                     if (skeleton.Joints[JointType.HandRight].Position.X < skeleton.Joints[JointType.ShoulderLeft].Position.X)
                     {
-                        IntPtr winId;
-                        winId = GetForegroundWindow();
-                        //MoveWindow(winId, 0, 0, 720, 800, true);
                         return GesturePartResult.Succeed;
                     }
 
