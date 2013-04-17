@@ -79,6 +79,9 @@ namespace Fizbin.Kinect.Gestures.Segments
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
         internal static extern void MoveWindow(IntPtr hwnd, int x, int y, int nWidth, int nHeight, bool bRepaint);
 
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
+        private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+
         /// <summary>
         /// Checks the gesture.
         /// </summary>
@@ -97,7 +100,7 @@ namespace Fizbin.Kinect.Gestures.Segments
                     {
                         IntPtr winId;
                         winId = GetForegroundWindow();
-                        MoveWindow(winId, 0, 0, 720, 800, true);
+                        //MoveWindow(winId, 0, 0, 720, 800, true);
                         return GesturePartResult.Succeed;
                     }
 

@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Data;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
@@ -7,6 +7,9 @@ using System.ComponentModel;
 using System;
 using System.Timers;
 using Fizbin.Kinect.Gestures.Segments;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+
 
 namespace Fizbin.Kinect.Gestures.Demo
 {
@@ -14,13 +17,6 @@ namespace Fizbin.Kinect.Gestures.Demo
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
-
-    // SendInput import:
-    [DllImport("user32.dll")]
-    internal static extern UINT SendInput(
-        UINT nInputs, 
-        [MarshalAs(UnmanagedType.LPArray), In] INPUT[] pInputs, 
-        int cbSize);
 
     {
         private readonly KinectSensorChooser sensorChooser = new KinectSensorChooser();
@@ -32,8 +28,31 @@ namespace Fizbin.Kinect.Gestures.Demo
         // skeleton gesture recognizer
         private GestureController gestureController;
 
+        // SendInput import:
+        [DllImport("user32.dll")]
+        internal static extern UINT SendInput(
+            UINT nInputs, 
+            [MarshalAs(UnmanagedType.LPArray), In] INPUT[] pInputs, 
+            int cbSize);
+
+        // Window control DLLs
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
+        internal static extern void MoveWindow(IntPtr hwnd, int x, int y, int nWidth, int nHeight, bool bRepaint);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
+        private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+
+        //Window Control Constants
+        private const int SW_SHOWNORMAL = 1;
+        private const int SW_SHOWMINIMIZED = 2;
+        private const int SW_SHOWMAXIMIZED = 3;
+
         public MainWindow()
         {
+
             DataContext = this;
 
             InitializeComponent();
@@ -213,6 +232,12 @@ namespace Fizbin.Kinect.Gestures.Demo
             leanrightSegments[0] = new LeanRightSegment1();
             leanrightSegments[1] = new LeanRightSegment2();
             gestureController.AddGesture("LeanRight", leanrightSegments);
+
+            IRelativeGestureSegment[] MRStepRightSegments = new IRelativeGestureSegment[3];
+            MRStepRightSegments[0] = new MRStepRightSegment1();
+            MRStepRightSegments[1] = new MRStepRightSegment2();
+            MRStepRightSegments[2] = new MRStepRightSegment3();
+            gestureController.AddGesture("MRStepRight", MRStepRightSegments);
         }
 
         #region Properties
@@ -270,9 +295,13 @@ namespace Fizbin.Kinect.Gestures.Demo
         /// <param name="e">Gesture event arguments.</param>
         private void OnGestureRecognized(object sender, GestureEventArgs e)
         {
+            IntPtr winId;
+            winId = GetForegroundWindow();
+
             switch (e.GestureName)
             {
                 case "Menu":
+                    System.Diagnostics.Process.Start("C:/Program Files (x86)/Notepad++/notepad++.exe");
                     Gesture = "Menu";
                     break;
                 case "WaveRight":
@@ -282,12 +311,15 @@ namespace Fizbin.Kinect.Gestures.Demo
                     Gesture = "Wave Left";
                     break;
                 case "JoinedHands":
+                    System.Windows.Forms.SendKeys.SendWait("A");
                     Gesture = "Joined Hands";
                     break;
                 case "SwipeLeft":
+                    MoveWindow(winId, 0, 0, 720, 800, true);
                     Gesture = "Swipe Left";
                     break;
                 case "SwipeRight":
+                    MoveWindow(winId, 720, 0, 720, 800, true);
                     Gesture = "Swipe Right";
  					break;
                 case "SwipeUp":
@@ -297,9 +329,11 @@ namespace Fizbin.Kinect.Gestures.Demo
                     Gesture = "Swipe Down";
                     break;
                 case "ZoomIn":
+                    ShowWindowAsync(winId, SW_SHOWMAXIMIZED);
                     Gesture = "Zoom In";
                     break;
                 case "ZoomOut":
+                    ShowWindowAsync(winId, SW_SHOWMINIMIZED);
                     Gesture = "Zoom Out";
                     break;
                 case "LeanLeft":
@@ -311,6 +345,9 @@ namespace Fizbin.Kinect.Gestures.Demo
                     Gesture = "Lean Right";
                     // Scroll right:
                     ScrollMouse(3);
+                    break;
+                case "MRStepRight":
+                    Gesture = "Minority Report Right";
                     break;
 
                 default:
@@ -392,6 +429,18 @@ namespace Fizbin.Kinect.Gestures.Demo
         {
             Gesture = "";
             _clearTimer.Stop();
+        }
+
+        /// <summary>
+        /// Maybe continue later
+        /// </summary>
+        private void SwitchAppForward()
+        {
+            Process[] procs = Process.GetProcesses();
+            if (procs.Length != 0)
+            {
+                int i = 0;
+            }
         }
 
         #endregion Event Handlers

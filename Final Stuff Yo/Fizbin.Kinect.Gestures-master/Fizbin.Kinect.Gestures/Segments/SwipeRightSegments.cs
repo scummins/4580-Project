@@ -118,7 +118,7 @@ namespace Fizbin.Kinect.Gestures.Segments
                     {
                         IntPtr winId;
                         winId = GetForegroundWindow();
-                        MoveWindow(winId, 720, 0, 720, 800, true);
+                        //MoveWindow(winId, 720, 0, 720, 800, true);
                         return GesturePartResult.Succeed;
                     }
 
