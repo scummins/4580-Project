@@ -10,6 +10,7 @@ using Fizbin.Kinect.Gestures.Segments;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 
+
 namespace Fizbin.Kinect.Gestures.Demo
 {
     /// <summary>
@@ -219,7 +220,7 @@ namespace Fizbin.Kinect.Gestures.Demo
             leanleftSegments[1] = new LeanLeftSegment2();
             gestureController.AddGesture("LeanLeft", leanleftSegments);
 
-            IRelativeGestureSegment[] MRStepRightSegments = new IRelativeGestureSegment[2];
+            IRelativeGestureSegment[] MRStepRightSegments = new IRelativeGestureSegment[3];
             MRStepRightSegments[0] = new MRStepRightSegment1();
             MRStepRightSegments[1] = new MRStepRightSegment2();
             MRStepRightSegments[2] = new MRStepRightSegment3();
@@ -297,6 +298,7 @@ namespace Fizbin.Kinect.Gestures.Demo
                     Gesture = "Wave Left";
                     break;
                 case "JoinedHands":
+                    System.Windows.Forms.SendKeys.SendWait("A");
                     Gesture = "Joined Hands";
                     break;
                 case "SwipeLeft":
