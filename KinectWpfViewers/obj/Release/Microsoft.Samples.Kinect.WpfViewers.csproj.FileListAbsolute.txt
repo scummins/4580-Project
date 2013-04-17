@@ -1,0 +1,45 @@
+C:\Users\scott\Desktop\KinectWpfViewers\bin\Release\Microsoft.Samples.Kinect.WpfViewers.dll
+C:\Users\scott\Desktop\KinectWpfViewers\bin\Release\Microsoft.Samples.Kinect.WpfViewers.pdb
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectAudioViewer.g.cs
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectDepthViewer.g.cs
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectColorViewer.g.cs
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectSettings.g.cs
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectSkeletonViewer.g.cs
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectVoiceCommandViewer.g.cs
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers_MarkupCompile.cache
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers_MarkupCompile.lref
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectAudioViewer.baml
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectDepthViewer.baml
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectColorViewer.baml
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectSettings.baml
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectSkeletonViewer.baml
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\KinectVoiceCommandViewer.baml
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.g.resources
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.Properties.Resources.resources
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.csproj.GenerateResource.Cache
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.dll
+C:\Users\scott\Desktop\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.pdb
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\bin\Release\Microsoft.Samples.Kinect.WpfViewers.dll
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\bin\Release\Microsoft.Samples.Kinect.WpfViewers.pdb
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.csprojResolveAssemblyReference.cache
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectAudioViewer.g.cs
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectDepthViewer.g.cs
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectColorViewer.g.cs
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectSettings.g.cs
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectSkeletonViewer.g.cs
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectVoiceCommandViewer.g.cs
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers_MarkupCompile.cache
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers_MarkupCompile.lref
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectAudioViewer.baml
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectDepthViewer.baml
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectColorViewer.baml
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectSettings.baml
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectSkeletonViewer.baml
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\KinectVoiceCommandViewer.baml
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.g.resources
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.Properties.Resources.resources
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.csproj.GenerateResource.Cache
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.dll
+C:\Users\scott\Documents\GitHub\4580-Project\Final Stuff Yo\KinectWpfViewers\obj\Release\Microsoft.Samples.Kinect.WpfViewers.pdb
