@@ -14,6 +14,14 @@ namespace Fizbin.Kinect.Gestures.Demo
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
+
+    // SendInput import:
+    [DllImport("user32.dll")]
+    internal static extern UINT SendInput(
+        UINT nInputs, 
+        [MarshalAs(UnmanagedType.LPArray), In] INPUT[] pInputs, 
+        int cbSize);
+
     {
         private readonly KinectSensorChooser sensorChooser = new KinectSensorChooser();
 
@@ -296,9 +304,13 @@ namespace Fizbin.Kinect.Gestures.Demo
                     break;
                 case "LeanLeft":
                     Gesture = "Lean Left";
+                    // Scroll left:
+                    ScrollMouse(4);
                     break;
                 case "LeanRight":
                     Gesture = "Lean Right";
+                    // Scroll right:
+                    ScrollMouse(3);
                     break;
 
                 default:
@@ -338,6 +350,38 @@ namespace Fizbin.Kinect.Gestures.Demo
                 }
             }
         }
+
+        public static void ScrollMouse(int scrollType)
+            {
+                INPUT mouseInput = new INPUT();
+                mouseInput.type = (int)InputType.INPUT_MOUSE;
+                mouseInput.mi.dx = 0;
+                mouseInput.mi.dy = 0;
+                switch (scrollType) {
+                    case 1:
+                        // Scroll up:
+                        mouseInput.mi.dwFlags = (int)MOUSEEVENTF.HWHEEL;
+                        mouseInput.mi.mouseData = 50;
+                        break;
+                    case 2:
+                        // Scroll down:
+                        mouseInput.mi.dwFlags = (int)MOUSEEVENTF.HWHEEL;
+                        mouseInput.mi.mouseData = -50;
+                        break;
+                    case 3:
+                        // Scroll right:
+                        mouseInput.mi.dwFlags = (int)MOUSEEVENTF.WHEEL;
+                        mouseInput.mi.mouseData = 50;
+                        break;
+                    case 4:
+                        // Scroll left:
+                        mouseInput.mi.dwFlags = (int)MOUSEEVENTF.WHEEL;
+                        mouseInput.mi.mouseData = -50;
+                        break;
+                }
+
+                SendInput(1, new INPUT[] { mouseInput }, Marshal.SizeOf(mouseInput));
+            }
 
         /// <summary>
         /// Clear text after some time
