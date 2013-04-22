@@ -59,9 +59,9 @@ namespace Fizbin.Kinect.Gestures.Segments
                     // left hand in front of left elbow in front of left shoulder
                     if (skeleton.Joints[JointType.HandLeft].Position.Z < skeleton.Joints[JointType.ElbowLeft].Position.Z && skeleton.Joints[JointType.ElbowLeft].Position.Z < skeleton.Joints[JointType.ShoulderLeft].Position.Z)
                     {
-                        double len = (skeleton.Joints[JointType.HandLeft].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y) * 3 / 2;
+                        float len = (skeleton.Joints[JointType.HandLeft].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y) * 4.0f / 2.0f;
                         // left arm is at constant height within limit set by len
-                        if ((((skeleton.Joints[JointType.WristLeft].Position.Y - skeleton.Joints[JointType.ElbowLeft].Position.Y) - len) < 0 || ((skeleton.Joints[JointType.ElbowLeft].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y) - len) < 0) && (((skeleton.Joints[JointType.ElbowLeft].Position.Y - skeleton.Joints[JointType.ShoulderLeft].Position.Y) - len) < 0 || ((skeleton.Joints[JointType.ShoulderLeft].Position.Y - skeleton.Joints[JointType.ElbowLeft].Position.Y) - len) < 0))
+                        if ((((skeleton.Joints[JointType.WristLeft].Position.Y - skeleton.Joints[JointType.ElbowLeft].Position.Y) > 0.0f && ((skeleton.Joints[JointType.WristLeft].Position.Y - skeleton.Joints[JointType.ElbowLeft].Position.Y) - len) < 0.0f) || ((skeleton.Joints[JointType.ElbowLeft].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y) > 0.0f && ((skeleton.Joints[JointType.ElbowLeft].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y) - len) < 0.0f)) && (((skeleton.Joints[JointType.ElbowLeft].Position.Y - skeleton.Joints[JointType.ShoulderLeft].Position.Y) > 0.0f && ((skeleton.Joints[JointType.ElbowLeft].Position.Y - skeleton.Joints[JointType.ShoulderLeft].Position.Y) - len) < 0.0f) || ((skeleton.Joints[JointType.ShoulderLeft].Position.Y - skeleton.Joints[JointType.ElbowLeft].Position.Y) > 0.0f && ((skeleton.Joints[JointType.ShoulderLeft].Position.Y - skeleton.Joints[JointType.ElbowLeft].Position.Y) - len) < 0.0f)))
                         {
                             return GesturePartResult.Succeed;
                         }

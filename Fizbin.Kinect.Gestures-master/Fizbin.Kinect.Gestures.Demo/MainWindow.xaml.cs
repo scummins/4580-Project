@@ -28,13 +28,6 @@ namespace Fizbin.Kinect.Gestures.Demo
         // skeleton gesture recognizer
         private GestureController gestureController;
 
-        // SendInput import:
-        [DllImport("user32.dll")]
-        internal static extern UINT SendInput(
-            UINT nInputs, 
-            [MarshalAs(UnmanagedType.LPArray), In] INPUT[] pInputs, 
-            int cbSize);
-
         // Window control DLLs
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
         static extern IntPtr GetForegroundWindow();
@@ -238,6 +231,16 @@ namespace Fizbin.Kinect.Gestures.Demo
             MRStepRightSegments[1] = new MRStepRightSegment2();
             MRStepRightSegments[2] = new MRStepRightSegment3();
             gestureController.AddGesture("MRStepRight", MRStepRightSegments);
+
+            IRelativeGestureSegment[] RightPushSegments = new IRelativeGestureSegment[2];
+            RightPushSegments[0] = new RightPushForwardSegment1();
+            RightPushSegments[1] = new RightPushForwardSegment2();
+            gestureController.AddGesture("RightPush", RightPushSegments);
+
+            IRelativeGestureSegment[] LeftPushSegments = new IRelativeGestureSegment[2];
+            LeftPushSegments[0] = new LeftPushForwardSegment1();
+            LeftPushSegments[1] = new LeftPushForwardSegment2();
+            gestureController.AddGesture("LeftPush", LeftPushSegments);
         }
 
         #region Properties
@@ -338,16 +341,18 @@ namespace Fizbin.Kinect.Gestures.Demo
                     break;
                 case "LeanLeft":
                     Gesture = "Lean Left";
-                    // Scroll left:
-                    ScrollMouse(4);
                     break;
                 case "LeanRight":
                     Gesture = "Lean Right";
-                    // Scroll right:
-                    ScrollMouse(3);
                     break;
                 case "MRStepRight":
                     Gesture = "Minority Report Right";
+                    break;
+                case "RightPush":
+                    Gesture = "Right Push Forward";
+                    break;
+                case "LeftPush":
+                    Gesture = "Left Push Forward";
                     break;
 
                 default:
@@ -388,37 +393,6 @@ namespace Fizbin.Kinect.Gestures.Demo
             }
         }
 
-        public static void ScrollMouse(int scrollType)
-            {
-                INPUT mouseInput = new INPUT();
-                mouseInput.type = (int)InputType.INPUT_MOUSE;
-                mouseInput.mi.dx = 0;
-                mouseInput.mi.dy = 0;
-                switch (scrollType) {
-                    case 1:
-                        // Scroll up:
-                        mouseInput.mi.dwFlags = (int)MOUSEEVENTF.HWHEEL;
-                        mouseInput.mi.mouseData = 50;
-                        break;
-                    case 2:
-                        // Scroll down:
-                        mouseInput.mi.dwFlags = (int)MOUSEEVENTF.HWHEEL;
-                        mouseInput.mi.mouseData = -50;
-                        break;
-                    case 3:
-                        // Scroll right:
-                        mouseInput.mi.dwFlags = (int)MOUSEEVENTF.WHEEL;
-                        mouseInput.mi.mouseData = 50;
-                        break;
-                    case 4:
-                        // Scroll left:
-                        mouseInput.mi.dwFlags = (int)MOUSEEVENTF.WHEEL;
-                        mouseInput.mi.mouseData = -50;
-                        break;
-                }
-
-                SendInput(1, new INPUT[] { mouseInput }, Marshal.SizeOf(mouseInput));
-            }
 
         /// <summary>
         /// Clear text after some time

@@ -51,9 +51,12 @@
     <Compile Include="GestureEventArgs.cs" />
     <Compile Include="IRelativeGestureSegment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Segments\LeanRightSegments.cs" />
+    <Compile Include="Segments\LeftPushForwardSegments.cs" />
     <Compile Include="Segments\MRStepRightSegment.cs" />
     <Compile Include="Segments\JoinedHandsSegment.cs" />
     <Compile Include="Segments\LeanLeftSegments.cs" />
+    <Compile Include="Segments\RightPushForwardSegments.cs" />
     <Compile Include="Segments\SwipeDown\SwipeDownSegment1.cs" />
     <Compile Include="Segments\SwipeDown\SwipeDownSegment2.cs" />
     <Compile Include="Segments\SwipeDown\SwipeDownSegment3.cs" />
