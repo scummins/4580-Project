@@ -349,9 +349,11 @@ namespace Fizbin.Kinect.Gestures.Demo
                     Gesture = "Minority Report Right";
                     break;
                 case "RightPush":
+                    System.Windows.Forms.SendKeys.SendWait("{UP}");
                     Gesture = "Right Push Forward";
                     break;
                 case "LeftPush":
+                    System.Windows.Forms.SendKeys.SendWait("{DOWN}");
                     Gesture = "Left Push Forward";
                     break;
 

@@ -53,6 +53,10 @@ namespace Fizbin.Kinect.Gestures.Segments
                 // right shoulder must be left of right hip
                 if (skeleton.Joints[JointType.ShoulderRight].Position.X < skeleton.Joints[JointType.HipRight].Position.X)
                 {
+                    while (skeleton.Joints[JointType.ShoulderRight].Position.X < skeleton.Joints[JointType.HipRight].Position.X)
+                    {
+                        System.Windows.Forms.SendKeys.SendWait("{LEFT}");
+                    }
                     return GesturePartResult.Succeed;
                 }
                 return GesturePartResult.Fail;
