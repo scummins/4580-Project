@@ -241,6 +241,12 @@ namespace Fizbin.Kinect.Gestures.Demo
             LeftPushSegments[0] = new LeftPushForwardSegment1();
             LeftPushSegments[1] = new LeftPushForwardSegment2();
             gestureController.AddGesture("LeftPush", LeftPushSegments);
+
+            IRelativeGestureSegment[] LeftThrowSegments = new IRelativeGestureSegment[3];
+            LeftPushSegments[0] = new LeftThrowSegment1();
+            LeftPushSegments[1] = new LeftThrowSegment2();
+            LeftPushSegments[2] = new LeftThrowSegment3();
+            gestureController.AddGesture("LeftThrow", LeftThrowSegments);
         }
 
         #region Properties
